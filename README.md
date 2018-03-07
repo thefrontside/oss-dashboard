@@ -1,7 +1,38 @@
 # oss-dashboard
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Frontside loves open source. We currently have 47 public repos! We try
+to contribute & keep up with all of them, but sometimes things can
+fall through the crack or be straight up forgotten. This
+dashboard aims to create a place where you can see high level
+information about Frontside OSS repos collectivly & also have the
+ability to drill down into each repo to get more grandular.
+
+We should be able to gauge how "healthy" our repos are and pick the
+most important issues by viewing this dashboard.
+
+This dashboard does _not_ aim to replace Github for managing our
+repos. We should still organize issues & PRs with Github.
+
+Information I'd like to see (quick notes, feel free to add/edit):
+
+- See all OSS repos Frontside has
+- See a dashboard of all our repos that combines this information:
+  - Last 5 merged PRs
+  - Last 5 open PRs
+  - Last 5 opened issues
+- Be able to navigate to a repo to display:
+  - Last 5 merged PRs
+  - Current open PRs
+  - Top 5 oldest issues on the repo
+  - New not triaged issues
+  - The project roadmap
+  - Stackoverflow questions related to the project
+  - Who is the project champion
+  - Current build status?
+  - [maybe] the readme
+
+This is very much a WIP. Feel free to contribute!
+
 
 ## Prerequisites
 
