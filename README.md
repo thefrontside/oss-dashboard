@@ -1,4 +1,4 @@
-# oss-dashboard
+# oss-dashboard [![CircleCI](https://circleci.com/gh/thefrontside/oss-dashboard.svg?style=svg)](https://circleci.com/gh/thefrontside/oss-dashboard)
 
 Frontside loves open source. We currently have 47 public repos! We try
 to contribute & keep up with all of them, but sometimes things can

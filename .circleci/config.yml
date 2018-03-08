@@ -1,0 +1,87 @@
+defaults: &defaults
+  docker:
+    - image: circleci/node:6.12-browsers
+      environment:
+        JOBS: 2
+  working_directory: ~/repo
+version: 2.0
+references:
+  container_config: &container_config
+    docker:
+      - image: circleci/node:6.12-browsers
+        environment:
+          JOBS: 2
+    working_directory: ~/repo
+
+  restore_repo: &restore_repo
+    restore_cache:
+      keys:
+        - v1-repo-{{ .Branch }}-{{ .Revision }}
+        - v1-repo-{{ .Branch }}
+        - v1-repo
+
+  restore_node_modules: &restore_node_modules
+    restore_cache:
+      keys:
+        - v1-dependencies-{{ checksum "package.json" }}
+        - v1-dependencies
+
+jobs:
+  checkout_code:
+    <<: *container_config
+    steps:
+      - *restore_repo
+      - checkout
+      - save_cache:
+          key: v1-repo-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - .
+
+  install_dependencies:
+    <<: *container_config
+    steps:
+      - *restore_repo
+      - *restore_node_modules
+      - run: yarn install
+      - save_cache:
+          key: v1-dependencies-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+
+  deploy_master:
+      <<: *container_config
+      steps:
+        - *restore_repo
+        - *restore_node_modules
+        - run:
+            name: Deploy Master
+            command: yarn deploy
+
+  test:
+    <<: *container_config
+    steps:
+      - *restore_repo
+      - *restore_node_modules
+      - run: yarn test
+
+workflows:
+  version: 2
+
+  build_test:
+    jobs:
+      - checkout_code
+
+      - install_dependencies:
+          requires:
+            - checkout_code
+
+      - test:
+          requires:
+            - install_dependencies
+
+      - deploy_master:
+          requires:
+            - test
+          filters:
+            branches:
+              only: rd/inital-setup
