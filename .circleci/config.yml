@@ -84,4 +84,4 @@ workflows:
             - test
           filters:
             branches:
-              only: rd/inital-setup
+              only: master
