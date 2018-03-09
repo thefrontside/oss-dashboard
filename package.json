@@ -12,7 +12,6 @@
   "repository": "",
   "scripts": {
     "build": "ember build",
-    "deploy": "ember surge",
     "lint:js": "eslint ./*.js app config lib server tests",
     "start": "ember serve",
     "test": "ember test"
@@ -33,7 +32,6 @@
     "ember-cli-mocha": "^0.15.0",
     "ember-cli-shims": "^1.2.0",
     "ember-cli-sri": "^2.1.0",
-    "ember-cli-surge": "^1.2.0",
     "ember-cli-uglify": "^2.0.0",
     "ember-data": "~3.0.0",
     "ember-export-application-global": "^2.0.0",

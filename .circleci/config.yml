@@ -48,15 +48,6 @@ jobs:
           paths:
             - node_modules
 
-  deploy_master:
-      <<: *container_config
-      steps:
-        - *restore_repo
-        - *restore_node_modules
-        - run:
-            name: Deploy Master
-            command: yarn deploy
-
   test:
     <<: *container_config
     steps:
@@ -78,10 +69,3 @@ workflows:
       - test:
           requires:
             - install_dependencies
-
-      - deploy_master:
-          requires:
-            - test
-          filters:
-            branches:
-              only: master
