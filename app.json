@@ -1,0 +1,27 @@
+{
+  "name": "oss-dashboard",
+  "description": "",
+  "scripts": {
+  },
+  "env": {
+    "GITHUB_DEV_CLIENT_ID": {
+      "required": true
+    },
+    "TOKEN_EXCHANGE_URL": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/emberjs.tgz"
+    }
+  ]
+}
