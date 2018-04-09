@@ -1,5 +1,30 @@
-{{#each model.repositories.edges as |repo|}}
-  {{#link-to "repos.repo" repo.node.name class="test-repo-link"}}
-    {{repo.node.name}}
-  {{/link-to}}
-{{/each}}
+<section class="section">
+  <div class="container is-fluid">
+    <div class="columns is-deskop is-multiline">
+      {{#each model.repositories.edges as |repo|}}
+        <div class="column is-half">
+          <div class="card" data-test-repo-card>
+            <div class="card-content">
+              <p class="title">
+                {{repo.node.name}}
+              </p>
+              <p class="subtitle">
+                {{repo.node.stargazers.totalCount}} stars
+              </p>
+            </div>
+            <footer class="card-footer">
+              <p class="card-footer-item">
+                {{#link-to "repos.repo" repo.node.name class="test-repo-link"}}
+                  Details
+                {{/link-to}}
+              </p>
+              <p class="card-footer-item">
+                <a href={{repo.node.url}} target="_blank">GitHub</a>
+              </p>
+            </footer>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</section>

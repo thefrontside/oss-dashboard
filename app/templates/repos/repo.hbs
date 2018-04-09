@@ -1,10 +1,30 @@
-<h2>Merged PRs</h2>
-
-{{#each model.pullRequests.nodes as |pr|}}
-  <h3 data-test-repo-pr-title>{{pr.title}}</h3>
-  <p data-test-repo-pr-author>{{pr.author.login}}</p>
-
-  <div data-test-repo-pr-body>
-    {{{pr.bodyText}}}
+<section class="hero is-dark">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        {{model.name}}
+      </h1>
+      <h2 class="subtitle">
+        {{model.stargazers.totalCount}} stars
+      </h2>
+    </div>
   </div>
-{{/each}}
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="content">
+      <h2>Merged PRs</h2>
+      {{#each model.pullRequests.nodes as |pr|}}
+        <div class="content">
+          <h4 data-test-repo-pr-title>{{pr.title}}</h4>
+          <p data-test-repo-pr-author>{{pr.author.login}}</p>
+
+          <div data-test-repo-pr-body>
+            {{{pr.bodyText}}}
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</section>

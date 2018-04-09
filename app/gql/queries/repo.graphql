@@ -1,6 +1,11 @@
 query ($name: String!) {
   organization(login: "thefrontside") {
     repository(name: $name) {
+      name
+      url
+      stargazers {
+        totalCount
+      }
       pullRequests(first: 5, states: MERGED, orderBy: { field: UPDATED_AT, direction: DESC }) {
         nodes {
           title

@@ -5,6 +5,9 @@ query {
         node {
           name
           url
+          stargazers {
+            totalCount
+          }
         }
       }
     }

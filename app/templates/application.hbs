@@ -1,10 +1,45 @@
-<h1>OSS Dashboard</h1>
+<nav class="navbar is-info">
+  <div class="container">
+    {{#nav-menu as |menu|}}
+      <div class="navbar-brand">
+        {{#link-to "index" class="navbar-item"}}
+          OSS Dashboard
+        {{/link-to}}
 
-{{#if session.isAuthenticated}}
-  <button {{action "logout"}}>Logout</button>
-  {{#link-to "repos"}}Repos{{/link-to}}
-{{else}}
-  {{#link-to "login"}}Login{{/link-to}}
-{{/if}}
+        <div
+          role="button"
+          tabindex="0"
+          class="navbar-burger burger"
+          onkeydown={{action menu.toggle}}
+          onclick={{action menu.toggle}}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div class="navbar-menu {{if menu.isActive "is-active"}}">
+        <div class="navbar-start">
+          {{#if session.isAuthenticated}}
+            {{#link-to "repos" class="navbar-item" activeClass="is-active"}}
+              Repos
+            {{/link-to}}
+          {{/if}}
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            {{#if session.isAuthenticated}}
+              {{#link-to "logout" class="button is-info"}}Logout{{/link-to}}
+            {{else}}
+              {{#link-to "login" class="button"}}Login{{/link-to}}
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    {{/nav-menu}}
+  </div>
+</nav>
 
 {{outlet}}

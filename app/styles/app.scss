@@ -1,0 +1,13 @@
+@import "ember-bulma-css/utilities/_all";
+@import "ember-bulma-css/base/_all";
+@import "ember-bulma-css/elements/_all";
+@import "ember-bulma-css/grid/_all";
+@import "ember-bulma-css/layout/_all";
+
+/* Components */
+@import "ember-bulma-css/components/card";
+@import "ember-bulma-css/components/navbar";
+
+a {
+  display: block;
+}

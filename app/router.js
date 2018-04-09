@@ -11,6 +11,7 @@ Router.map(function() {
     this.route('repo', { path: ':name' });
   });
   this.route('login');
+  this.route('logout');
 });
 
 export default Router;

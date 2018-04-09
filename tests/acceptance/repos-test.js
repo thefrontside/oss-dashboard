@@ -35,7 +35,7 @@ describe('Acceptance | repos', function() {
     });
   });
 
-  describe.only('visiting the repos route', function() {
+  describe('visiting the repos route', function() {
     beforeEach(function() {
       return visit('/repos');
     });
@@ -45,7 +45,7 @@ describe('Acceptance | repos', function() {
     });
 
     it('has two repos', function() {
-      expect($('.test-repo-link').length).to.equal(2);
+      expect($('[data-test-repo-card]').length).to.equal(2);
     });
 
     describe('clicking a repo', function() {
