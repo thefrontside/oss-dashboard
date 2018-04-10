@@ -4,6 +4,7 @@ import query from "oss-dashboard/gql/queries/repos";
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
 export default Route.extend(AuthenticatedRouteMixin, {
+  title: 'All Repositories | OSS Dashboard',
   apollo: service(),
 
   model() {

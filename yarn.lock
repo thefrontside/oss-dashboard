@@ -2441,6 +2441,12 @@ ember-cli-dependency-checker@^2.0.0:
     resolve "^1.5.0"
     semver "^5.3.0"
 
+ember-cli-document-title@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-document-title/-/ember-cli-document-title-0.4.0.tgz#1d0321c443d16b104eca16a8eb42839ecd6737f2"
+  dependencies:
+    ember-cli-babel "^6.6.0"
+
 ember-cli-dotenv@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ember-cli-dotenv/-/ember-cli-dotenv-2.0.0.tgz#2c09fc5f8b60f690c9e02428b4f4e3f0b8c64421"
