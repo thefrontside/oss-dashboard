@@ -3,6 +3,14 @@ import { computed } from '@ember/object';
 import { setContext } from "apollo-link-context";
 
 export default ApolloService.extend({
+  clientOptions: computed(function() {
+    return {
+      ssrMode: true,
+      link: this.get("link"),
+      cache: this.get("cache")
+    };
+  }),
+
   link: computed(function() {
     let httpLink = this._super(...arguments);
     let token = JSON.parse(window.localStorage.getItem('ember_simple_auth-session')).authenticated.access_token;

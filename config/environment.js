@@ -21,6 +21,14 @@ module.exports = function(environment) {
       apiURL: 'https://api.github.com/graphql'
     },
 
+    fastboot: {
+      hostWhitelist: [
+        'oss.frontside.io',
+          /^localhost:\d+$/,
+          /^fs-oss-dashboard-pr-\d+.herokuapp.com/
+      ]
+    },
+
     torii: {
       sessionServiceName: 'session',
       providers: {
