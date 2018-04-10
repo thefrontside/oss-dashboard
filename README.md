@@ -68,8 +68,11 @@ an create a `.env` file in the root of the project:
 
 ```
 GITHUB_DEV_CLIENT_ID=[yourClientIDHere]
-TOKEN_EXCHANGE_URL=https://github-oauth-server.herokuapp.com/authenticate
+TOKEN_EXCHANGE_URL=[yourTokenExchangeServer] [https://github.com/prose/gatekeeper]
 ```
+
+If you're a Frontside employee, look in the shared 1Password vault for the .env file 
+credentials.
 
 Once the `.env` file is created & you have the right variables set
 everything should be ready to go!
