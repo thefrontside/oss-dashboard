@@ -1,0 +1,12 @@
+query {
+  organization(login: "thefrontside") {
+    repositories(last: 100, isFork: false, privacy: PUBLIC, orderBy: { field: PUSHED_AT, direction: DESC }) {
+      edges {
+        node {
+          name
+          url
+        }
+      }
+    }
+  }
+}

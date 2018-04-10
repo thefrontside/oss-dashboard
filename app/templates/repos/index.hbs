@@ -1,0 +1,5 @@
+{{#each model.repositories.edges as |repo|}}
+  {{#link-to "repos.repo" repo.node.name class="test-repo-link"}}
+    {{repo.node.name}}
+  {{/link-to}}
+{{/each}}

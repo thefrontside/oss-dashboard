@@ -1,0 +1,15 @@
+query ($name: String!) {
+  organization(login: "thefrontside") {
+    repository(name: $name) {
+      pullRequests(first: 5, states: MERGED, orderBy: { field: UPDATED_AT, direction: DESC }) {
+        nodes {
+          title
+          bodyText
+          author {
+            login
+          }
+        }
+      }
+    }
+  }
+}

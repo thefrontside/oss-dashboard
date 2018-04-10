@@ -14,9 +14,19 @@ module.exports = function(environment) {
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
         Date: false
-      },
-      apollo: {
-        apiURL: 'https://api.github.com/graphql'
+      }
+    },
+
+    apollo: {
+      apiURL: 'https://api.github.com/graphql'
+    },
+
+    torii: {
+      sessionServiceName: 'session',
+      providers: {
+        'github-oauth2': {
+          scope: 'repo user read:org'
+        }
       }
     },
 
@@ -32,6 +42,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.torii.providers['github-oauth2'].apiKey = process.env.GITHUB_DEV_CLIENT_ID;
+    ENV.torii.providers['github-oauth2'].redirectUri = 'http://localhost:4200/torii/redirect.html';
+    ENV.torii.providers['github-oauth2'].tokenExchangeUri = process.env.TOKEN_EXCHANGE_URL;
   }
 
   if (environment === 'test') {
@@ -47,6 +60,9 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.torii.providers['github-oauth2'].apiKey = process.env.GITHUB_DEV_CLIENT_ID;
+    ENV.torii.providers['github-oauth2'].redirectUri = 'http://oss.frontside.io/torii/redirect.html';
+    ENV.torii.providers['github-oauth2'].tokenExchangeUri = process.env.TOKEN_EXCHANGE_URL;
     // here you can enable a production-specific feature
   }
 

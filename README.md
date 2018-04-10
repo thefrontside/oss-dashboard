@@ -54,7 +54,25 @@ You will need the following things properly installed on your computer.
 
 * `ember serve`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
+* Visit your tests at
+  [http://localhost:4200/tests](http://localhost:4200/tests).
+
+
+### Setting up GitHub Oauth
+
+In order to run this application locally you will need to [create a
+GitHub oauth
+app](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/). Once
+you have created an oauth app, you can take the `Client ID` given to you
+an create a `.env` file in the root of the project:
+
+```
+GITHUB_DEV_CLIENT_ID=[yourClientIDHere]
+TOKEN_EXCHANGE_URL=https://github-oauth-server.herokuapp.com/authenticate
+```
+
+Once the `.env` file is created & you have the right variables set
+everything should be ready to go!
 
 ### Code Generators
 
